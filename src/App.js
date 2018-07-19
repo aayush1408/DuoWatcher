@@ -21,7 +21,9 @@ class App extends Component {
   render() {
     return(
       <div className="App">
+      <div>
       <h1>Mark it down</h1>
+      </div>
         <div className="first-column">
         <textarea placeholder="Enter text" value={this.state.text} onChange={this.handleChange}></textarea>
         </div>

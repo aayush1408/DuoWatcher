@@ -23,9 +23,9 @@ textarea{
   height: 600px;
   border:solid 1px;
   margin-right: 40px;
-  font-family: fantasy;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: dimgray;
-  font-size:20px;
+  font-size:18px;
   padding:15px;
   overflow-y: scroll;
   color: aliceblue;
@@ -37,6 +37,7 @@ h1{
   text-align: center;
   color: azure;
   font-family: 'Courier New', Courier, monospace;
+  font-size: 40px;
 }
 textarea::-webkit-scrollbar {
   width: 3px;
