@@ -1,35 +1,28 @@
-import React, { Component } from 'react';
-import './App.css';
-import YouTube from 'react-youtube';
+import React, { Component } from 'react'
+import './App.css'
+import Remarkable from 'remarkable'
+let md = new Remarkable()
+
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.videoNode = React.createRef();
-    this.buttonNode = React.createRef();    
+  constructor(){
+    super();
+    this.state = {
+      text:'Enter the markdown...',
+      markdown:''
+    }
   }
-  playPause(){
-    console.log(this.videoNode);
-    this.buttonNode.current.innerHTML = 'Pause'; 
+  handleChange = (event)=>{
+    let text = event.target.value
+    this.setState({ text: text})
+  }
+  createMarkup = ()=>{
+    return { __html: md.render(this.state.text)}
   }
   render() {
-    const opts = {
-      height: '390',
-      width: '640',
-      playerVars: { // https://developers.google.com/youtube/player_parameters
-        autoplay: 1
-      }
-    };
- 
-    return (
+    return(
       <div className="App">
-        <YouTube
-        videoId="FB97kk5-zGc"
-        opts={opts}
-        onReady={this._onReady}
-        />
-        <div>
-          <button ref={this.buttonNode} onClick = {this.playPause.bind(this)}>Play</button>
-          <input type="range" min="0" max="100" value="0" step="1" /> 
+        <textarea placeholder="Enter text" defaultValue={this.state.text} onChange={this.handleChange}></textarea>
+        <div  dangerouslySetInnerHTML={this.createMarkup()}>
         </div>
       </div>
 
