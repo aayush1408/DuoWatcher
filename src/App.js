@@ -7,7 +7,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      text:'Enter the markdown...',
+      text:'Enter the text...',
       markdown:''
     }
   }
@@ -21,11 +21,13 @@ class App extends Component {
   render() {
     return(
       <div className="App">
-        <textarea placeholder="Enter text" defaultValue={this.state.text} onChange={this.handleChange}></textarea>
-        <div  dangerouslySetInnerHTML={this.createMarkup()}>
+      <h1>Mark it down</h1>
+        <div className="first-column">
+        <textarea placeholder="Enter text" value={this.state.text} onChange={this.handleChange}></textarea>
+        </div>
+        <div  className="second-column" dangerouslySetInnerHTML={this.createMarkup()}>
         </div>
       </div>
-
     );
   }
 }
